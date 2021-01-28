@@ -22,8 +22,8 @@ class AnimalController extends Controller
         $animals = Animal::all();
 
         // load the view and pass the animals
-    return view('animal.index')->with('animals', $animals);
-}
+        return view('animal.index')->with('animals', $animals);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +47,7 @@ class AnimalController extends Controller
             'name' => 'required',
             'breed' => 'required',
             'location' => 'required',
-            'chip' => 'required'
+            'chip' => 'required|numeric'
         ]);
 
         Animal::create($request->all());
@@ -61,8 +61,9 @@ class AnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Animal $animal)
+    public function show($id)
     {
+        $animal = animal::find($id);
         return view('animal.show', compact('animal'));
     }
 
@@ -72,9 +73,13 @@ class AnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Animal $animal)
+    public function edit($id)
     {
-        return view('animal.edit', compact('animal'));
+        // get the shark
+        $animal = animal::find($id);
+
+        // show the edit form and pass the shark
+        return view('animal.edit')->with('animal', $animal);
     }
 
     /**
@@ -92,7 +97,7 @@ class AnimalController extends Controller
             'location' => 'required',
             'chip' => 'required'
         ]);
-        $animals->update($request->all());
+        $animal->update($request->all());
 
         return redirect()->route('animal.index')->with('success', 'Project updated successfully');
     }
@@ -107,6 +112,6 @@ class AnimalController extends Controller
     {
         $animals->delete();
 
-        return redirect()->route('animals.index')->with('success', 'Project deleted successfully');
+        return redirect()->route('animal.index')->with('success', 'Project deleted successfully');
     }
 }

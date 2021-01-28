@@ -37,24 +37,22 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Breed:</strong>
-                    <textarea class="form-control" style="height:50px" name="breed"
-                        placeholder="Breed">{{ $project->introduction }}</textarea>
+                    <input class="form-control" name="breed" value="{{ $animal->breed }}" placeholder="Breed"></input>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Location:</strong>
-                    <input type="text" name="location" class="form-control" placeholder="{{ $animal->location }}"
-                        value="{{ $animal->location }}">
+                    <input type="text" name="location" class="form-control" placeholder="{{ $animal->location }}" value="{{ $animal->location }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Chip:</strong>
-                    <input type="number" name="chip" class="form-control" placeholder="{{ $animal->cost }}"
-                        value="{{ $project->location }}">
+                    <input type="number" name="chip" class="form-control" placeholder="{{ $animal->chip }}" value="{{ $animal->chip }}">
                 </div>
             </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

@@ -47,10 +47,10 @@
                         <!-- we will add this later since its a little more complicated than the other two buttons -->
 
                         <!-- show the animal (uses the show method found at GET /sharks/{id} -->
-                        <a class="btn btn-small btn-success" href="{{ URL::to('animals/' . $value->id) }}">Show this Animal</a>
+                        <a class="btn btn-small btn-success" href="{{ URL::to('animal/' . $value->id) }}">Show this Animal</a>
 
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                        <a class="btn btn-small btn-info" href="{{ URL::to('animals/' . $value->id . '/edit') }}">Edit this Animal</a>
+                        <a class="btn btn-small btn-info" href="{{ URL::to('animal/' . $value->id . '/edit') }}">Edit this Animal</a>
 
                     </td>
                 </tr>
