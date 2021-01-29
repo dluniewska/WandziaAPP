@@ -11,5 +11,7 @@ class Animal extends Model
         return $this->belongsTo(User::class);
     }
 
+    protected $table = "animals";
+
     protected $fillable = ['name', 'breed', 'location', 'chip'];
 }

@@ -43,7 +43,7 @@
                         <td>{{ $value->location }}</td>
                         <td>{{ $value->chip }}</td>
                         <td>{{ $value->created_at }}</td>
-                        <td>{{ $value->user_id }}</td>
+                        <td>{{ $value->user_name }}</td>
 
                         <!-- we will also add show, edit, and delete buttons -->
                     <td>

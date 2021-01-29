@@ -14,13 +14,14 @@ class CreateAnimalsTable extends Migration
     public function up()
     {
         Schema::create('animals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->string('user_name');   //->unsigned();
             $table->string('name');
             $table->string('breed');
             $table->string('location');
             $table->integer('chip');
-            $table->integer('user_id')->nullable();
             $table->timestamps();
+            // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

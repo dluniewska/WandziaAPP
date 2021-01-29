@@ -11,6 +11,9 @@ class SmsController extends Controller
 
     public function sendSms(){
 
+        // $user = new User; 
+        // $user = auth()->user()->phone;
+
         Nexmo::message()->send([
             'to'   => '+48575070195',
             'from' => '16105552344',

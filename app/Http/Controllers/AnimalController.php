@@ -49,15 +49,19 @@ class AnimalController extends Controller
             'name' => 'required',
             'breed' => 'required',
             'location' => 'required',
-            'chip' => 'required|numeric'
+            'chip' => 'required|numeric',
+            'user_id' => 'numeric'
         ]);
 
-        Animal::create($request->all());
+        $animal = new Animal;
+        $animal->name = $request->name;
+        $animal->breed = $request->breed;
+        $animal->location = $request->location;
+        $animal->chip = $request->chip;
+        $animal->user_name = auth()->user()->name;
+        $animal->save();
 
-        // $user = User::find($id);
-        // $animals->user_id = $user;
-        // $animals->save();
-
+        // Animal::create($request->all());
         return redirect()->route('animal.index')->with('success', 'Project created successfully.');
     }
 
