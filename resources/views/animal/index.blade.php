@@ -28,7 +28,10 @@
                     <td>Breed</td>
                     <td>Location</td>
                     <td>Chip</td>
+                    <td>Created</td>
+                    <td>Created by</td>
                     <td>Actions</td>
+                    <td>Send SMS</td>
                 </tr>
             </thead>
                 <tbody>
@@ -39,6 +42,8 @@
                         <td>{{ $value->breed }}</td>
                         <td>{{ $value->location }}</td>
                         <td>{{ $value->chip }}</td>
+                        <td>{{ $value->created_at }}</td>
+                        <td>{{ $value->user_id }}</td>
 
                         <!-- we will also add show, edit, and delete buttons -->
                     <td>
@@ -58,8 +63,16 @@
                             {{ method_field('delete') }}
 
                             <button type="submit" class="btn btn-danger">Delete</button>
+                            
                         </form>
 
+                    </td>
+                    <td>
+                        <form method="POST" action="{{ route('sms')}}" onsubmit="return confirm('Do you want to send alert?');" accept-charset="UTF-8">
+
+                        @csrf
+                        <button type="submit" class="btn btn-warning">Alert</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Animal;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -20,7 +22,7 @@ class AnimalController extends Controller
     {
         // get all the animals
         $animals = Animal::all();
-
+    
         // load the view and pass the animals
         return view('animal.index')->with('animals', $animals);
     }
@@ -51,6 +53,10 @@ class AnimalController extends Controller
         ]);
 
         Animal::create($request->all());
+
+        $user = User::find($id);
+        $animals->user_id = $user;
+        $animals->save();
 
         return redirect()->route('animal.index')->with('success', 'Project created successfully.');
     }

@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function animal() {
         return $this->hasMany('App\Models\Animal');
     }
+
+    // public static function user() {
+    //     return $users->id;
+    // }
 }
