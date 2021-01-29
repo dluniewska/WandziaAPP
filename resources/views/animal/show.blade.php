@@ -44,5 +44,14 @@
                 {{ date_format($animal->created_at, 'jS M Y') }}
             </div>
         </div>
+
+        <div>
+        @csrf
+        @method('DELETE')
+
+            <button type="submit" class="btn btn-danger">Delete this animal</button>
+            
+            <a class="btn btn-small btn-info" href="{{ URL::to('animal/' . $animal->id . '/edit') }}">Edit this Animal</a>
+        </div>
     </div>
 @endsection

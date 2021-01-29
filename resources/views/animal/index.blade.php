@@ -45,12 +45,21 @@
 
                         <!-- delete animal (uses the destroy method DESTROY /sharks/{id} -->
                         <!-- we will add this later since its a little more complicated than the other two buttons -->
+                        
 
                         <!-- show the animal (uses the show method found at GET /sharks/{id} -->
                         <a class="btn btn-small btn-success" href="{{ URL::to('animal/' . $value->id) }}">Show this Animal</a>
 
                         <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
                         <a class="btn btn-small btn-info" href="{{ URL::to('animal/' . $value->id . '/edit') }}">Edit this Animal</a>
+
+
+                        <form method="POST" action="{{ route('animal.destroy', $value->id)}}" onsubmit="return confirm('Do you really want to delete?');">
+                        {{ csrf_field() }}
+                        {{ method_field('delete') }}
+
+                        <button type="submit" class="btn btn-danger">Delete this animal</button>
+                        </form>
 
                     </td>
                 </tr>
@@ -61,12 +70,3 @@
     </div>
 
 @endsection
-
-<!-- 
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                            <i class="fas fa-trash fa-lg text-danger"></i>
-
-                        </button> -->

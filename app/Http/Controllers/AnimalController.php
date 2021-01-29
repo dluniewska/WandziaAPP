@@ -63,7 +63,7 @@ class AnimalController extends Controller
      */
     public function show($id)
     {
-        $animal = animal::find($id);
+        $animal = Animal::find($id);
         return view('animal.show', compact('animal'));
     }
 
@@ -76,7 +76,7 @@ class AnimalController extends Controller
     public function edit($id)
     {
         // get the shark
-        $animal = animal::find($id);
+        $animal = Animal::find($id);
 
         // show the edit form and pass the shark
         return view('animal.edit')->with('animal', $animal);
@@ -108,10 +108,10 @@ class AnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Animal $animal)
+    public function destroy($id)
     {
-        $animals->delete();
-
-        return redirect()->route('animal.index')->with('success', 'Project deleted successfully');
+        $animal=Animal::find($id);
+        $animal->delete();
+        return redirect()->route('animal.index')->with('success', 'Animal deleted successfully');
     }
 }
