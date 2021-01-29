@@ -54,9 +54,9 @@ class AnimalController extends Controller
 
         Animal::create($request->all());
 
-        $user = User::find($id);
-        $animals->user_id = $user;
-        $animals->save();
+        // $user = User::find($id);
+        // $animals->user_id = $user;
+        // $animals->save();
 
         return redirect()->route('animal.index')->with('success', 'Project created successfully.');
     }
