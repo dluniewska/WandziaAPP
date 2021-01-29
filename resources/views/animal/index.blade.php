@@ -42,23 +42,22 @@
 
                         <!-- we will also add show, edit, and delete buttons -->
                     <td>
-
-                        <!-- delete animal (uses the destroy method DESTROY /sharks/{id} -->
-                        <!-- we will add this later since its a little more complicated than the other two buttons -->
                         
-
-                        <!-- show the animal (uses the show method found at GET /sharks/{id} -->
-                        <a class="btn btn-small btn-success" href="{{ URL::to('animal/' . $value->id) }}">Show this Animal</a>
-
-                        <!-- edit this shark (uses the edit method found at GET /sharks/{id}/edit -->
-                        <a class="btn btn-small btn-info" href="{{ URL::to('animal/' . $value->id . '/edit') }}">Edit this Animal</a>
-
-
                         <form method="POST" action="{{ route('animal.destroy', $value->id)}}" onsubmit="return confirm('Do you really want to delete?');">
-                        {{ csrf_field() }}
-                        {{ method_field('delete') }}
 
-                        <button type="submit" class="btn btn-danger">Delete this animal</button>
+                            
+
+                            <!-- show the animal (uses the show method found at GET /sharks/{id} -->
+                            <a class="btn btn-small btn-success" href="{{ URL::to('animal/' . $value->id) }}">Show</a>
+
+                            <!-- edit this animal (uses the edit method found at GET /sharks/{id}/edit -->
+                            <a class="btn btn-small btn-info" href="{{ URL::to('animal/' . $value->id . '/edit') }}">Edit</a>
+
+                             <!-- delete animal (uses the destroy method DESTROY /animal/{id} -->
+                            {{ csrf_field() }}
+                            {{ method_field('delete') }}
+
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
 
                     </td>
