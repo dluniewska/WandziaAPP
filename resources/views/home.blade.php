@@ -1,26 +1,45 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row justify-content-center">
-                        <a class="btn btn-success" href="{{ route('animal.index') }}" title="Create an animal">Lista zwierząt</a>
-                    </div>
-                </div>
+        <title>Home</title>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-                </div>
-            </div>
+        <!-- Styles -->
+        
+        <!-- normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */ -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   
+    </head>
+    
+ 
+    <body class="antialiased">  
+        @extends('layouts.app')
+        @section('content')
+        <div class="jumbotron text-center">
+            <h1>AnimalCHIP</h1>
+            <p>Endangered species in your area</p>
+            <div class="row justify-content-center">
+                <a class="btn btn-success" href="{{ route('animal.index') }}" title="animallist">Animal List</a>
+            </div>           
+
         </div>
-    </div>
-</div>
-@endsection
+
+        <div class="container text-center">
+               
+            <h4>made by:</h4>
+            <p>Daria Łuniewska
+            <br>Paulina Ciach
+            <br>Natalia Gościnna
+            <br>Damian Jaszewski</p>  
+            
+        </div>
+        @endsection
+    </body>
+
+    
+</html>
