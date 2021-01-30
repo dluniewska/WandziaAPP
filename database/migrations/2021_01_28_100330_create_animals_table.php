@@ -15,7 +15,7 @@ class CreateAnimalsTable extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');   //->unsigned();
+            $table->string('user_name')->nullable();
             $table->string('name');
             $table->string('breed');
             $table->string('location');

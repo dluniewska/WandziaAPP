@@ -21,4 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('animal', 'App\Http\Controllers\apiController@animal');
 Route::get('animal/{id}', 'App\Http\Controllers\apiController@animalID');
-// Route::post('animal', 'App\Http\Controllers\apiController@animalSave');
+Route::post('animal', 'App\Http\Controllers\apiController@animalSave');
+Route::put('animal/{id}', 'App\Http\Controllers\apiController@animalUpdate');
+Route::delete('animal/{id}', 'App\Http\Controllers\apiController@animalDelete');
