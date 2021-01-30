@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Animal;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class apiController extends Controller
 {
@@ -31,7 +32,7 @@ class apiController extends Controller
             'breed' => 'required',
             'location' => 'required',
             'chip' => 'required|numeric|digits_between:6,8',
-            'user_id' => 'numeric'
+            'user_id' => 'numeric',
         ];
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()) {
