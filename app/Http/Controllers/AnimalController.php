@@ -18,10 +18,20 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // get all the animals
         $animals = Animal::all();
+
+        // $search = Animal::where([
+        //     ['chip', '!=', NULL].
+        //     [function($query) use ($request) {
+        //         if (($chip = $request->chip)) {
+        //             $query->orWhere('chip', 'LIKE', '%' . $chip . '%')->get();
+        //         }
+        //     }]
+        // ])
+        //     ->orderBy("id", "desc");
     
         // load the view and pass the animals
         return view('animal.index')->with('animals', $animals);
