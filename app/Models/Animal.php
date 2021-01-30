@@ -13,5 +13,7 @@ class Animal extends Model
 
     protected $table = "animals";
 
+    // public $timestamps = false;
+
     protected $fillable = ['name', 'breed', 'location', 'chip'];
 }

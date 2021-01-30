@@ -49,7 +49,7 @@ class AnimalController extends Controller
             'name' => 'required',
             'breed' => 'required',
             'location' => 'required',
-            'chip' => 'required|numeric',
+            'chip' => 'required|numeric|digits_between:6,8',
             'user_id' => 'numeric'
         ]);
 

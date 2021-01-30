@@ -22,7 +22,7 @@
         @section('content')
         <div class="jumbotron text-center">
             <h1>AnimalCHIP</h1>
-            <p>Endangered species in your area</p>
+            <p>Lost animal in your area</p>
             <div class="row justify-content-center">
                 <a class="btn btn-success" href="{{ route('animal.index') }}" title="animallist">Animal List</a>
             </div>           

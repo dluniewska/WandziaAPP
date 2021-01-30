@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('animals', 'App\Http\Controllers\apiController@animal');
+Route::get('animal', 'App\Http\Controllers\apiController@animal');
+Route::get('animal/{id}', 'App\Http\Controllers\apiController@animalID');
+// Route::post('animal', 'App\Http\Controllers\apiController@animalSave');
