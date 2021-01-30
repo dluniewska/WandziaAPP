@@ -124,4 +124,5 @@ class AnimalController extends Controller
         $animal->delete();
         return redirect()->route('animal.index')->with('success', 'Animal deleted successfully');
     }
+
 }
